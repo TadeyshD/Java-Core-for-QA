@@ -10,7 +10,10 @@ import java.util.Random;
 public abstract class Team {
     private String name;
     private String type;
-    protected abstract int stamina();
+
+    protected static int stamina() {
+        return 0;
+    }
 
     protected Random random = new Random();
 
@@ -26,7 +29,7 @@ public abstract class Team {
     public void about_team(){
         System.out.println(member());
     }
-    
+
     public String run(){
         if (stamina() >=  Course.length){
             return(name + " успешно преодолел дистанцию, длинной " + Course.length);
@@ -37,6 +40,7 @@ public abstract class Team {
     public void go_team_go(){
         System.out.println(run());
     }
+
 }
 
 
