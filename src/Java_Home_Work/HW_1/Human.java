@@ -1,6 +1,8 @@
 package Java_Home_Work.HW_1;
 
-public class Human extends Team{
+import java.util.Random;
+
+public class Human extends Team {
 
     public Human(String name, String type) {
         super(name, type);
@@ -11,5 +13,8 @@ public class Human extends Team{
         int stamina = random.nextInt(50, 600);
             return stamina;
     }
+
+
+
 
 }

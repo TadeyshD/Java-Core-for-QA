@@ -11,6 +11,7 @@ public abstract class Team {
     private String name;
     private String type;
     protected abstract int stamina();
+
     protected Random random = new Random();
 
     public Team(String name, String type){
@@ -25,8 +26,18 @@ public abstract class Team {
     public void about_team(){
         System.out.println(member());
     }
+    
+    public String run(){
+        if (stamina() >=  Course.length){
+            return(name + " успешно преодолел дистанцию, длинной " + Course.length);
+        } else {
+            return (name + " не смог преодолеть дистанцию, длинной " + Course.length);
+        }
+    }
+    public void go_team_go(){
+        System.out.println(run());
+    }
+}
 
-    public void lets_run(){
-        System.out.println(stamina());
-    }
-    }
+
+
