@@ -13,12 +13,12 @@ public class HW_2 {
                 int result = method(arr);
                 System.out.println(result);
             } catch (MyArraySizeException e) {
-                System.out.println("Размер массива превышен!");
+                System.out.println("Вы превысили размер массива");
             }
         }
         catch (MyArrayDataException e) {
-            System.out.println("Неправильное значение массива!");
-            System.out.println("Ошибка в ячейке: " + e.i + "x" + e.j);
+            System.out.println("Ошибка в значении массива");
+            System.out.println("Вы ошиблись: " + e.i + "x" + e.j);
         }
 
     }
