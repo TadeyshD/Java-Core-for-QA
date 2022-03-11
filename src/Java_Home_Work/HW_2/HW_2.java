@@ -7,42 +7,12 @@ package Java_Home_Work.HW_2;
  3. В методе main() вызвать полученный метод, обработать возможные исключения MyArraySizeException и MyArrayDataException и вывести результат расчета. **/
 public class HW_2 {
     public static void main(String[] args) {
-        String[][] arr = new String[][]{{"4", "5", "6", "1"}, {"3", "1", "9", "5"}, {"4", "7", "8", "1"}, {"3", "4", "5", "6"}};
-        try {
-            try {
-                int result = method(arr);
-                System.out.println(result);
-            } catch (MyArraySizeException e) {
-                System.out.println("Вы превысили размер массива");
-            }
-        }
-        catch (MyArrayDataException e) {
-            System.out.println("Ошибка в значении массива");
-            System.out.println("Вы ошиблись: " + e.i + "x" + e.j);
-        }
-
-    }
-
-
-    public static int method(String[][] arr) throws MyArraySizeException, MyArrayDataException {
-        int count = 0;
-        if (arr.length != 4) {
-            throw new MyArraySizeException();
-        }
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length != 4) {
-                throw new MyArraySizeException();
-            }
-            for (int j = 0; j < arr[i].length; j++) {
-                try {
-                    count = count + Integer.parseInt(arr[i][j]);
-                }
-                catch (NumberFormatException e) {
-                    throw new MyArrayDataException(i, j);
-                }
+        String[][] arr = {{"3", "2", "9", "1"},{"1", "2", "3", "4"},{"6","5","4","3"},{"1", "9", "2", "8"}};
+        for (int i = 0; i < arr.length; i++){
+            for (int j = 0; j < arr.length; j++) {
+                System.out.print(arr[i][j] + " ");
             }
 
         }
-        return count;
     }
     }
