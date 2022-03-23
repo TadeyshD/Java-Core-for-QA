@@ -1,7 +1,8 @@
 package Java_Home_Work.HW_3.Task_2;
 
 public class Orange extends Fruit{
-    public Orange(int weight) {
+    public Orange() {
         super("Orange", 2);
     }
+
 }

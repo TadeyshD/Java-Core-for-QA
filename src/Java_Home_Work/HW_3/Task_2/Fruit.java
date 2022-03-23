@@ -16,4 +16,11 @@ public class Fruit {
     public String getType() {
         return type;
     }
+    public String get_fruit(){
+        return (type + " " + weight + "f.");
+    }
+    public void print(){
+        System.out.println(get_fruit());
+    }
+
 }
