@@ -15,6 +15,13 @@ public class Param {
         return data;
     }
 
+    public void setHead(String[] head) {
+        this.head = head;
+    }
+
+    public void setData(int[][] data) {
+        this.data = data;
+    }
 
     public void read(File file){
         int size = 0;

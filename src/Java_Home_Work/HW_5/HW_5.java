@@ -34,5 +34,6 @@ public class HW_5 {
         System.out.println(Arrays.toString(param.getData()[0]));
         System.out.println(Arrays.toString(param.getData()[10]));
         param.write_data(file2);
+
     }
 }
