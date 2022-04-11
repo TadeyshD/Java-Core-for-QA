@@ -1,24 +1,4 @@
 package Java_Home_Work.HW_5;
-/**
- *1. Реализовать сохранение данных в csv файл;
- * 2. Реализовать загрузку данных из csv файла. Файл читается целиком.
- * Структура csv файла:
- * | Строка заголовок с набором столбцов |
- * | Набор строк с целочисленными значениями |
- * | * Разделитель между столбцами - символ точка с запятой (;) |
- *
- * Пример:
- * Value 1;Value 2;Value 3
- * 100;200;123
- * 300;400;500
- * Для хранения данных использовать класс вида:
- * public class AppData {
- *   private String[] header;
- *   private int[][] data;
- *
- *  // ...
- * }
- */
 
 import java.io.*;
 
@@ -31,17 +11,10 @@ public class Param {
         return head;
     }
 
-    public void setHead(String[] head) {
-        this.head = head;
-    }
-
     public int[][] getData() {
         return data;
     }
 
-    public void setData(int[][] data) {
-        this.data = data;
-    }
 
     public void read(File file){
         int size = 0;
@@ -53,10 +26,36 @@ public class Param {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        head = new String[3];
-        data = new int[size-1][];
-    try {
+
+        head = new String[14];
+        data = new int[size -1][];
+        try(BufferedReader bfr = new BufferedReader(new FileReader(file))){
+            head = bfr.readLine().split(";"); //возвращает строковый массив по поределённому признаку
+            String line;
+            int tmp = 0;
+            while ((line = bfr.readLine()) != null){
+            String[] dataString = line.split(";");
+            int a1 = Integer.parseInt(dataString[0]);
+            int a2 = Integer.parseInt(dataString[1]);
+            int a3 = Integer.parseInt(dataString[2]);
+            data[tmp] = new int[]{a1, a2, a3};
+            tmp++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+     System.out.println(size);
 
     }
+    public void write_data(File file){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file)) ) {
+            bufferedWriter.write(head[0] + "; " + head[1] + "; " + head[2]);
+
+            for (int[] arr: data){
+                bufferedWriter.write(arr[0] + "; " + arr[1] + "; " + arr[2]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
